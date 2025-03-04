@@ -37,7 +37,11 @@ class RepoGitHub:
         put = requests.put(url = url, json = data, headers = self.headers)
 
         return put.status_code
-
+    
+    def delete_repo(self):
+        url = f'https://api.github.com/repos/{self.username}/{self.repo}'
+        delete = requests.delete(url = url, headers = self.headers)
+        return delete.status_code
 
 # Exemplo de uso
 if __name__ == "__main__":
